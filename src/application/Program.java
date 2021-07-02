@@ -2,9 +2,6 @@ package src.application;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import src.boardgame.Board;
-import src.boardgame.Position;
 import src.chess.ChessException;
 import src.chess.ChessMatch;
 import src.chess.ChessPiece;
