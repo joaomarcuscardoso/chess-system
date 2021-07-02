@@ -1,6 +1,5 @@
 package src.chess;
 
-import src.boardgame.BoardException;
 import src.boardgame.Position;
 
 public class ChessPosition {
