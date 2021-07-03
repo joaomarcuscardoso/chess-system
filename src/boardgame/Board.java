@@ -7,7 +7,7 @@ public class Board {
 
     public Board(int rows, int columns) {
         if (rows < 1 || columns < 1) {
-            throw new BoardException("Error creating board: there must at least 1 row and column 1");
+            throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
         }
         this.rows = rows;
         this.columns = columns;
@@ -15,11 +15,11 @@ public class Board {
     }
 
     public int getRows() {
-        return this.rows;
+        return rows;
     }
 
     public int getColumns() {
-        return this.columns;
+        return columns;
     }
 
     public Piece piece(int row, int column) {
@@ -37,11 +37,24 @@ public class Board {
     }
 
     public void placePiece(Piece piece, Position position) {
-        if (thereIsApiece(position)) {
+        if (thereIsAPiece(position)) {
             throw new BoardException("There is already a piece on position " + position);
         }
         pieces[position.getRow()][position.getColumn()] = piece;
         piece.position = position;
+    }
+
+    public Piece removePiece(Position position) {
+        if (!positionExists(position)) {
+            throw new BoardException("Position not on the board");
+        }
+        if (piece(position) == null) {
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
     }
 
     private boolean positionExists(int row, int column) {
@@ -52,26 +65,10 @@ public class Board {
         return positionExists(position.getRow(), position.getColumn());
     }
 
-    public boolean thereIsApiece(Position position) {
+    public boolean thereIsAPiece(Position position) {
         if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
         }
         return piece(position) != null;
     }
-
-    public Piece removePiece(Position position) {
-        if (!positionExists(position)) {
-            throw new BoardException("Position not on the board");
-        }
-
-        if (piece(position) == null) {
-            return null;
-        }
-        Piece aux = piece(position);
-        aux.position = null;
-        pieces[position.getRow()][position.getColumn()] = null;
-
-        return aux;
-    }
-
 }

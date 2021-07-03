@@ -5,6 +5,7 @@ import src.boardgame.Position;
 import src.boardgame.Board;
 
 public abstract class ChessPiece extends Piece {
+
     private Color color;
     private int moveCount;
 
@@ -14,7 +15,7 @@ public abstract class ChessPiece extends Piece {
     }
 
     public Color getColor() {
-        return this.color;
+        return color;
     }
 
     public int getMoveCount() {

@@ -1,6 +1,7 @@
 package src.boardgame;
 
 public class Position {
+
     private int row;
     private int column;
 
@@ -10,31 +11,19 @@ public class Position {
     }
 
     public int getRow() {
-        return this.row;
+        return row;
     }
 
-    public boolean setRow(int row) {
-        if (row > 0) {
-            this.row = row;
-            return true;
-        } else {
-            return false;
-
-        }
+    public void setRow(int row) {
+        this.row = row;
     }
 
     public int getColumn() {
-        return this.column;
+        return column;
     }
 
-    public boolean setColumn(int column) {
-        if (column > 0) {
-            this.column = column;
-            return true;
-        } else {
-            return false;
-
-        }
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     public void setValues(int row, int column) {
