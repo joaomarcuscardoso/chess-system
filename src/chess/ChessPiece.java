@@ -1,6 +1,7 @@
 package src.chess;
 
 import src.boardgame.Piece;
+import src.boardgame.Position;
 import src.boardgame.Board;
 
 public abstract class ChessPiece extends Piece {
@@ -15,4 +16,8 @@ public abstract class ChessPiece extends Piece {
         return this.color;
     }
 
+    protected boolean isThereOpponentPiece(Position position) {
+        ChessPiece p = (ChessPiece) getBoard().piece(position);
+        return p != null && p.getColor() != color;
+    }
 }
