@@ -2,6 +2,7 @@ package src.chess.pieces;
 
 import src.boardgame.Board;
 import src.boardgame.Position;
+import src.chess.ChessMatch;
 import src.chess.ChessPiece;
 import src.chess.Color;
 
@@ -9,6 +10,7 @@ public class King extends ChessPiece {
 
     public King(Board board, Color color) {
         super(board, color);
+
     }
 
     @Override
@@ -18,7 +20,7 @@ public class King extends ChessPiece {
 
     private boolean canMove(Position position) {
         ChessPiece p = (ChessPiece) getBoard().piece(position);
-        return p != null || p.getColor() != getColor();
+        return p == null || p.getColor() != getColor();
     }
 
     @Override
